@@ -1,0 +1,19 @@
+@import '../../assets/style/functions';
+@import '../../assets/style/mixins';
+@import '../../assets/style/variables';
+
+.button {
+	@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+	appearance: none;
+	border: none;
+	background: none;
+	padding: 0;
+	opacity: 1;
+	color: $color-primary;
+	transition: opacity $tspeed;
+	will-change: opacity;
+	cursor: pointer;
+	&:hover {
+		opacity: 0.3;
+	}
+}

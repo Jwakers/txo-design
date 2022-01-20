@@ -1,0 +1,19 @@
+@import '../../assets/style/functions';
+
+.footer {
+	display: flex;
+	align-items: center;
+	margin-top: rem(300);
+	padding: rem(8) 0;
+	&_logo {
+		flex: 1 1 0;
+		img {
+			max-height: rem(26);
+		}
+	}
+	&_links {
+		flex: 1 1 0;
+		display: flex;
+		justify-content: space-between;
+	}
+}

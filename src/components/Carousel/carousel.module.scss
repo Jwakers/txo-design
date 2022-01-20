@@ -3,6 +3,7 @@
 @import '../../assets/style/variables';
 
 .carousel {
+	$spacing: rem(26);
 	margin: rem(100) 0;
 	&_wrapper {
 		display: flex;
@@ -13,28 +14,24 @@
 	}
 	&_infoBar {
 		@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+		margin-bottom: $spacing;
 		&_top {
 			display: flex;
 			align-content: stretch;
-			padding: rem(30) 0;
+			padding: $spacing 0;
 			border-bottom: 2px solid $color-primary;
 			div {
-				flex-grow: 1;
+				flex: 1 0 0;
 			}
 		}
 		&_desc {
-		}
-		&_btn {
-			appearance: none;
-			border: none;
-			background: none;
-			opacity: 0.3;
-			font-size: inherit;
-			color: inherit;
-			transition: opacity $tspeed;
-			will-change: opacity;
-			&:hover {
-				opacity: 1;
+			max-height: 0;
+			transition: max-height $tspeed;
+			will-change: max-height;
+			overflow: hidden;
+			&___open {
+				max-height: rem(200);
+				overflow-y: auto;
 			}
 		}
 	}

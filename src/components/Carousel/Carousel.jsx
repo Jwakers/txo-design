@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as style from './carousel.module.scss';
 import CarouselItem from './CarouselItem';
 import imageData from './carousel-data';
+import Button from '../Button/Button';
 
 const Carousel = () => {
 	const images = imageData;
@@ -21,8 +22,8 @@ const Carousel = () => {
 				<div className={style.carousel_infoBar_desc}>
 					<p>{images[activeImage].desc}</p>
 				</div>
-				<button className={style.carousel_infoBar_btn}>Read More</button>
 			</div>
+			<Button>Read More</Button>
 		</section>
 	);
 };

@@ -1,0 +1,32 @@
+@import '../../assets/style/functions';
+@import '../../assets/style/mixins';
+@import '../../assets/style/variables';
+
+.form {
+	&_top {
+		text-transform: uppercase;
+	}
+	&_item {
+		@include outputList(getNestedMap($font-settings, 'md', 'hero'));
+		line-height: unset;
+		color: $color-primary;
+		// Negative margins offset sizing quirks of inputs
+		margin-bottom: rem(-22);
+		margin-left: rem(-8);
+		padding: 0;
+		display: block;
+		background: none;
+		border: none;
+		&___input {
+			&::placeholder {
+				color: $color-primary;
+				opacity: 0.3;
+				padding: 0;
+				margin: 0;
+			}
+		}
+	}
+	&_btn {
+		margin-top: rem(60);
+	}
+}

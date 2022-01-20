@@ -9,7 +9,7 @@ $breakpoints: (
 
 // Font sizes
 $hero-ls: -0.066em;
-$primary-ls: 0;
+$primary-ls: -0.04em;
 $link-ls: -0.045em;
 $font-settings: (
 	sm: (
@@ -36,8 +36,8 @@ $font-settings: (
 			letter-spacing: $hero-ls,
 		),
 		primary: (
-			font-size: rem(45),
-			line-height: rem(45),
+			font-size: rem(34),
+			line-height: rem(34),
 			letter-spacing: $primary-ls,
 		),
 		link: (
