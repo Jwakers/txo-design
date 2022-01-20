@@ -1,0 +1,41 @@
+@use 'sass:map';
+@import '../../assets/style/functions';
+@import '../../assets/style/mixins';
+@import '../../assets/style/variables';
+
+.header {
+	display: flex;
+	&_logo {
+		flex-grow: 1;
+		img {
+			display: block;
+			max-height: rem(78);
+		}
+	}
+	&_content {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		@include outputList(getNestedMap($font-settings, 'md', 'link'));
+		&_item {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		&_head {
+			width: 100%;
+			text-transform: uppercase;
+			margin-bottom: rem(6);
+		}
+		&_inner {
+			align-self: flex-end;
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+		}
+	}
+}

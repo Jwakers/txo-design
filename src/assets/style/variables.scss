@@ -1,0 +1,56 @@
+@import './functions';
+
+// Breakpoints
+$breakpoints: (
+	sm: rem(481),
+	md: rem(768),
+	lg: rem(1024),
+);
+
+// Font sizes
+$hero-ls: -0.066em;
+$primary-ls: 0;
+$link-ls: -0.045em;
+$font-settings: (
+	sm: (
+		hero: (
+			font-size: rem(72),
+			line-height: rem(69),
+			letter-spacing: $hero-ls,
+		),
+		primary: (
+			font-size: rem(18),
+			line-height: rem(19),
+			letter-spacing: $primary-ls,
+		),
+		link: (
+			font-size: rem(10),
+			line-height: rem(10),
+			letter-spacing: $link-ls,
+		),
+	),
+	md: (
+		hero: (
+			font-size: rem(124),
+			line-height: rem(116),
+			letter-spacing: $hero-ls,
+		),
+		primary: (
+			font-size: rem(45),
+			line-height: rem(45),
+			letter-spacing: $primary-ls,
+		),
+		link: (
+			font-size: rem(16),
+			line-height: rem(18),
+			letter-spacing: $link-ls,
+		),
+	),
+);
+
+// Colors
+$color-primary: #736357;
+$color-secondary: #f9f5ef;
+
+// Animation
+$tspeed: 200ms;

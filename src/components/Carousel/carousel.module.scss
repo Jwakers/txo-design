@@ -1,0 +1,41 @@
+@import '../../assets/style/functions';
+@import '../../assets/style/mixins';
+@import '../../assets/style/variables';
+
+.carousel {
+	margin: rem(100) 0;
+	&_wrapper {
+		display: flex;
+		overflow: hidden;
+		&_img {
+			width: 100%;
+		}
+	}
+	&_infoBar {
+		@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+		&_top {
+			display: flex;
+			align-content: stretch;
+			padding: rem(30) 0;
+			border-bottom: 2px solid $color-primary;
+			div {
+				flex-grow: 1;
+			}
+		}
+		&_desc {
+		}
+		&_btn {
+			appearance: none;
+			border: none;
+			background: none;
+			opacity: 0.3;
+			font-size: inherit;
+			color: inherit;
+			transition: opacity $tspeed;
+			will-change: opacity;
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+}

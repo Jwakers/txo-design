@@ -1,0 +1,22 @@
+@import '../../assets/style/functions';
+@import '../../assets/style/mixins';
+@import '../../assets/style/variables';
+
+.hero {
+	max-width: rem(1354);
+	&_center {
+		@include outputList(getNestedMap($font-settings, 'md', 'hero'));
+	}
+	&_bottom {
+		max-width: rem(970);
+		margin-left: auto;
+		&_head {
+			@include outputList(getNestedMap($font-settings, 'md', 'link'));
+			text-transform: uppercase;
+		}
+		&_content {
+			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+			margin: rem(10) 0;
+		}
+	}
+}

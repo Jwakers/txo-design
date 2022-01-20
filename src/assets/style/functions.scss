@@ -1,0 +1,13 @@
+@use 'sass:math';
+@use 'sass:map';
+
+@function rem($num) {
+	@return math.div($num, 16) * 1rem;
+}
+
+@function getNestedMap($map, $keys...) {
+	@each $key in $keys {
+		$map: map.get($map, $key);
+	}
+	@return $map;
+}

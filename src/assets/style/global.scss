@@ -1,0 +1,32 @@
+@import './variables';
+@import './functions';
+@import './mixins';
+@font-face {
+	font-family: 'MessinaSansWeb';
+	src: url('../fonts/messina-sans/MessinaSansWeb-Regular.eot'); /* IE9 Compat Modes */
+	src: url('../fonts/messina-sans/MessinaSansWeb-Regular.eot?#iefix')
+			format('embedded-opentype'),
+		/* IE6-IE8 */ url('../fonts/messina-sans/MessinaSansWeb-Regular.woff2')
+			format('woff2'),
+		/* Super Modern Browsers */
+			url('../fonts/messina-sans/MessinaSansWeb-Regular.woff') format('woff'); /* Pretty Modern Browsers */
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	unicode-range: U+000D-FB04;
+}
+
+html,
+body {
+	margin: 0;
+}
+
+body {
+	font-family: 'MessinaSansWeb', sans-serif;
+	color: $color-primary;
+	background-color: $color-secondary;
+}
+
+* {
+	box-sizing: border-box;
+}

@@ -1,0 +1,11 @@
+@import '../../assets/style/functions';
+@import '../../assets/style/mixins';
+
+.layout {
+	margin: 0 auto;
+	padding: rem(16) rem(24);
+	@include atMedium {
+		// TODO: find exact in design
+		max-width: rem(1600);
+	}
+}
