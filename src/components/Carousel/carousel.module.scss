@@ -3,17 +3,24 @@
 @import '../../assets/style/variables';
 
 .carousel {
-	$spacing: rem(26);
-	min-height: 100vh;
+	$spacing: rem(14);
+	$spacing-md: rem(26);
+	overflow: hidden;
 	@include atMedium {
 		min-height: auto;
 	}
 	&_wrapper {
 		display: flex;
-		overflow: hidden;
 		padding-top: 100px;
+		transition: transform 500ms;
+		will-change: transform;
+		cursor: url('../../assets/images/icon/arrow-right.png'), auto;
+		&___left {
+			cursor: url('../../assets/images/icon/arrow-left.png'), auto;
+		}
 		&_img {
-			width: 100%;
+			flex: 0 0 100%;
+			max-width: 100%;
 		}
 	}
 	&_infoBar {
@@ -21,24 +28,35 @@
 		@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
 		@include atMedium {
 			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+			margin-bottom: $spacing-md;
 		}
 		&_top {
 			display: flex;
 			align-content: stretch;
-			padding: $spacing 0;
 			border-bottom: $border-style;
+			padding: $spacing 0;
+			@include atMedium {
+				padding: $spacing-md 0;
+			}
 			div {
 				flex: 1 0 0;
 			}
 		}
 		&_desc {
-			max-height: 0;
-			transition: max-height $tspeed;
-			will-change: max-height;
+			max-height: 0rem;
+			margin: 0;
+			transition: max-height $tspeed, margin $tspeed;
+			will-change: max-height, margin;
 			overflow: hidden;
+			p {
+				margin: 0;
+			}
 			&___open {
-				max-height: rem(200);
-				overflow-y: auto;
+				max-height: rem(400);
+				margin-top: $spacing;
+				@include atMedium {
+					margin-top: $spacing-md;
+				}
 			}
 		}
 	}

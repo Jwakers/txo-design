@@ -4,9 +4,21 @@
 
 .header {
 	display: flex;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	background-color: $color-secondary;
+	padding: rem(16) rem(16);
+	z-index: 10;
+	@include atMedium {
+		padding: rem(30) rem(40);
+	}
 
 	&_logo {
 		flex-grow: 1;
+		// Required for gsap
+		transform-origin: 0 0;
 		img {
 			display: block;
 			max-height: rem(40);
@@ -23,10 +35,8 @@
 		left: 0;
 		right: 0;
 		padding: rem(46) rem(20);
-		background-color: $color-secondary;
 		height: calc(100vh - 40px);
 		background-color: $color-secondary;
-		z-index: 10;
 		@include outputList(getNestedMap($font-settings, 'sm', 'link'));
 		@include atMedium {
 			@include outputList(getNestedMap($font-settings, 'md', 'link'));

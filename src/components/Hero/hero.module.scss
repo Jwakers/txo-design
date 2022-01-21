@@ -5,14 +5,16 @@
 .hero {
 	display: flex;
 	flex-wrap: wrap;
-	// 57 = header offset
-	height: calc(100vh - rem(57));
+	// height: 100vh;
+	margin-top: (100vh);
+	// Offset for fixed header
+	padding-top: rem(72);
 	@include atMedium {
 		display: inline-flex;
 		flex-direction: column;
 		align-items: flex-start;
 		flex-wrap: nowrap;
-		height: auto;
+		// height: auto;
 	}
 	&_center {
 		@include outputList(getNestedMap($font-settings, 'sm', 'hero'));
