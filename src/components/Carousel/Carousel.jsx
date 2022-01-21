@@ -10,14 +10,17 @@ const Carousel = () => {
 	const [direction, setDirection] = useState('');
 	const [readMore, setReadMore] = useState(false);
 	const wrapperRef = useRef(null);
+	const cursorRef = useRef(null);
 	useEffect(() => {
 		setWrapperWidth(wrapperRef.current.offsetWidth);
 	}, []);
 	const handleMouseMove = (e) => {
-		calcDirection(e);
+		const { x, y } = getPosition(e);
+		calcDirection(e, x);
+		cursorRef.current.style.transform = `translate(${x}px, ${y}px)`;
 	};
-	const handleMouseDown = (e) => {
-		if (direction === 'right') {
+	const handleClick = (e) => {
+		if (direction === 'next') {
 			if (activeImage < imageData.length - 1) {
 				setActiveImage(activeImage + 1);
 			}
@@ -27,28 +30,43 @@ const Carousel = () => {
 			}
 		}
 	};
-	const calcDirection = (e) => {
+	const handleMouseLeave = () => {
+		setDirection('');
+	};
+	const getPosition = (e) => {
+		const rect = e.currentTarget.getBoundingClientRect();
+		return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+	};
+	const calcDirection = (e, x) => {
 		// Get logical mouse position relative to element
-		const rect = e.target.getBoundingClientRect();
-		const position = Math.round(((e.clientX - rect.left) / rect.width) * 100);
-		if (position >= 50 && direction !== 'right') return setDirection('right');
-		if (position < 50 && direction !== 'left') return setDirection('left');
+		const rect = e.currentTarget.getBoundingClientRect();
+		const position = Math.round((x / rect.width) * 100);
+		if (position >= 50 && direction !== 'next') return setDirection('next');
+		if (position < 50 && direction !== 'prev') return setDirection('prev');
 	};
 
 	return (
 		<section className={style.carousel}>
 			<div
 				ref={wrapperRef}
-				className={`${style.carousel_wrapper} ${
-					direction === 'left' ? style.carousel_wrapper___left : ''
-				}`}
+				className={style.carousel_wrapper}
 				onMouseMove={(e) => handleMouseMove(e)}
-				onMouseDown={(e) => handleMouseDown(e)}
-				style={{ transform: `translateX(${-(wrapperWidth * activeImage)}px)` }}
+				onClick={(e) => handleClick(e)}
+				onMouseLeave={handleMouseLeave}
 			>
-				{imageData.map((img) => (
-					<CarouselItem data={img} key={img.id} />
-				))}
+				<div ref={cursorRef} className={style.carousel_wrapper_cursor}>
+					{direction}
+				</div>
+				<div
+					className={style.carousel_wrapper_inner}
+					style={{
+						transform: `translateX(${-(wrapperWidth * activeImage)}px)`,
+					}}
+				>
+					{imageData.map((img) => (
+						<CarouselItem data={img} key={img.id} />
+					))}
+				</div>
 			</div>
 			<div className={style.carousel_infoBar}>
 				<div className={style.carousel_infoBar_top}>

@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as style from './header.module.scss';
 import * as heroStyle from '../Hero/hero.module.scss';
+import * as hamburgerStyle from './Hamburger/hamburger.module.scss';
+
 import logo from '../../assets/images/logo/txo_logo_2.svg';
 
 import Hamburger from './Hamburger/Hamburger';
@@ -24,6 +26,15 @@ const Header = () => {
 			scale: 2,
 			y: window.innerHeight - logo.offsetHeight * 3,
 			scrollTrigger: scrollT,
+		});
+
+		gsap.from(`.${hamburgerStyle.hamburger}`, {
+			opacity: 0,
+			scrollTrigger: {
+				trigger: `.${heroStyle.hero}`,
+				end: 'top 0',
+				scrub: true,
+			},
 		});
 
 		gsap.utils

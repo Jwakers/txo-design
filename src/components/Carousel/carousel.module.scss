@@ -5,22 +5,37 @@
 .carousel {
 	$spacing: rem(14);
 	$spacing-md: rem(26);
+	margin-top: 100px;
 	overflow: hidden;
+
 	@include atMedium {
 		min-height: auto;
 	}
+
 	&_wrapper {
-		display: flex;
-		padding-top: 100px;
-		transition: transform 500ms;
-		will-change: transform;
-		cursor: url('../../assets/images/icon/arrow-right.png'), auto;
-		&___left {
-			cursor: url('../../assets/images/icon/arrow-left.png'), auto;
+		position: relative;
+		@include atMedium {
+			cursor: none;
 		}
-		&_img {
-			flex: 0 0 100%;
-			max-width: 100%;
+		&_inner {
+			display: flex;
+			transition: transform 500ms;
+			will-change: transform;
+			&_img {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+		&_cursor {
+			display: none;
+			position: absolute;
+			mix-blend-mode: difference;
+			text-transform: uppercase;
+			z-index: 10;
+			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+			@include atMedium {
+				display: block;
+			}
 		}
 	}
 	&_infoBar {

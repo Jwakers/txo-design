@@ -3,7 +3,6 @@
 - Add all animations from brief and interactivity (Because of this some of the spacing between sections is off as per design, because, from what I understand these spaces need to be dynamic and change as the user scrolls)
 - Refine animations so on resize it resets accordingly
 - Add feature to carousel so it restarts when reaching the end
-- Refine arrow cursor override so it uses the "difference" blend mode and transitions when flipping to the other side
 - Add breakpoint between the small and medium (essentially tablet) and refine layout and font sizes etc
 - Disable mobile menu until initial brand animation/scrolling is complete (or trigger animation to finish when menu is clicked)
 - Add swipe features to carousel on mobile
