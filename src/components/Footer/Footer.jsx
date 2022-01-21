@@ -9,7 +9,8 @@ const Footer = () => (
 		</div>
 		<div className={style.footer_links}>
 			<a className={style.footer_links_link} href='#'>
-				Terms and Conditions
+				Terms <span data-type='amp'>&amp;</span>
+				<span data-type='text'>and</span> Conditions
 			</a>
 			<a className={style.footer_links_link} href='#'>
 				Privacy Policy

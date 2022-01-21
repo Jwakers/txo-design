@@ -3,19 +3,45 @@
 @import '../../assets/style/variables';
 
 .hero {
-	max-width: rem(1354);
+	display: flex;
+	flex-wrap: wrap;
+	// 57 = header offset
+	height: calc(100vh - rem(57));
+	@include atMedium {
+		display: inline-flex;
+		flex-direction: column;
+		align-items: flex-start;
+		flex-wrap: nowrap;
+		height: auto;
+	}
 	&_center {
-		@include outputList(getNestedMap($font-settings, 'md', 'hero'));
+		@include outputList(getNestedMap($font-settings, 'sm', 'hero'));
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'md', 'hero'));
+		}
+		br {
+			display: none;
+			// Custom break for ideal text wrapping
+			@include atCustom(1605) {
+				display: block;
+			}
+		}
 	}
 	&_bottom {
-		max-width: rem(970);
-		margin-left: auto;
+		max-width: rem(848);
+		align-self: flex-end;
 		&_head {
-			@include outputList(getNestedMap($font-settings, 'md', 'link'));
+			@include outputList(getNestedMap($font-settings, 'sm', 'link'));
+			@include atMedium {
+				@include outputList(getNestedMap($font-settings, 'md', 'link'));
+			}
 			text-transform: uppercase;
 		}
 		&_content {
-			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+			@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
+			@include atMedium {
+				@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+			}
 			margin: rem(10) 0;
 		}
 	}

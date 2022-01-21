@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as style from './header.module.scss';
 import logo from '../../assets/images/logo/txo_logo_2.svg';
 
+import Hamburger from './Hamburger/Hamburger';
+
 const Header = () => {
+	const [menuOpen, setMenuOpen] = useState(false);
+	const handleMenu = () => {
+		// Toggle menu state
+		setMenuOpen(!menuOpen);
+	};
 	return (
 		<header className={style.header}>
 			<div className={style.header_logo}>
 				<img src={logo} alt='TXO logo' />
 			</div>
-			<div className={style.header_content}>
+
+			<div
+				className={`${style.header_content} ${
+					menuOpen ? style.header_content___open : ''
+				}`}
+			>
 				<div
 					className={[
 						style.header_content_item,
@@ -68,6 +80,8 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
+
+			<Hamburger isOpen={menuOpen} onClick={handleMenu} />
 		</header>
 	);
 };

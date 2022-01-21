@@ -1,19 +1,46 @@
 @import '../../assets/style/functions';
+@import '../../assets/style/mixins';
 
 .footer {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	margin-top: rem(300);
 	padding: rem(8) 0;
+	margin-top: rem(100);
+	@include atMedium {
+		margin-top: rem(300);
+	}
 	&_logo {
-		flex: 1 1 0;
+		width: 100%;
+		@include atMedium {
+			flex: 1 1 0;
+		}
 		img {
 			max-height: rem(26);
 		}
 	}
 	&_links {
-		flex: 1 1 0;
+		width: 100%;
+		margin-top: rem(30);
+		@include outputList(getNestedMap($font-settings, 'sm', 'link'));
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'md', 'link'));
+			flex: 1 1 0;
+			margin-top: 0;
+		}
 		display: flex;
 		justify-content: space-between;
+
+		[data-type='amp'] {
+			@include atMedium {
+				display: none;
+			}
+		}
+		[data-type='text'] {
+			display: none;
+			@include atMedium {
+				display: inline;
+			}
+		}
 	}
 }

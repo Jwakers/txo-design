@@ -3,30 +3,48 @@
 @import '../../assets/style/variables';
 
 .form {
+	@include atMedium {
+		margin-top: rem(240);
+	}
 	&_top {
 		text-transform: uppercase;
+		margin-bottom: rem(10);
 	}
 	&_item {
-		@include outputList(getNestedMap($font-settings, 'md', 'hero'));
 		line-height: unset;
 		color: $color-primary;
-		// Negative margins offset sizing quirks of inputs
-		margin-bottom: rem(-22);
-		margin-left: rem(-8);
 		padding: 0;
 		display: block;
 		background: none;
 		border: none;
+		// Negative margins offset sizing quirks of inputs
+		margin-bottom: rem(-3);
+		margin-left: rem(-3);
+		@include outputList(getNestedMap($font-settings, 'sm', 'hero'));
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'md', 'hero'));
+			margin-bottom: rem(-3);
+			margin-left: rem(-8);
+		}
 		&___input {
+			margin-bottom: rem(-8);
+			@include atMedium {
+				margin-bottom: rem(-10);
+			}
 			&::placeholder {
 				color: $color-primary;
-				opacity: 0.3;
+				opacity: $opacity;
 				padding: 0;
 				margin: 0;
 			}
 		}
 	}
 	&_btn {
-		margin-top: rem(60);
+		margin-top: rem(40);
+		@include atMedium {
+			margin-top: rem(60);
+		}
 	}
 }
+
+@include removeOutline('.form_item');

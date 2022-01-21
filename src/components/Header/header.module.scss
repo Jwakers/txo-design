@@ -1,36 +1,81 @@
-@use 'sass:map';
 @import '../../assets/style/functions';
 @import '../../assets/style/mixins';
 @import '../../assets/style/variables';
 
 .header {
 	display: flex;
+
 	&_logo {
 		flex-grow: 1;
 		img {
 			display: block;
-			max-height: rem(78);
+			max-height: rem(40);
+			@include atMedium {
+				max-height: rem(78);
+			}
 		}
 	}
 	&_content {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		@include outputList(getNestedMap($font-settings, 'md', 'link'));
+		$this: &;
+		position: fixed;
+		display: none;
+		top: 54px;
+		left: 0;
+		right: 0;
+		padding: rem(46) rem(20);
+		background-color: $color-secondary;
+		height: calc(100vh - 40px);
+		background-color: $color-secondary;
+		z-index: 10;
+		@include outputList(getNestedMap($font-settings, 'sm', 'link'));
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'md', 'link'));
+			position: static;
+			padding: 0;
+			height: auto;
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+		}
+		&___open {
+			display: block;
+			@include atMedium {
+				display: grid;
+			}
+		}
 		&_item {
 			display: flex;
 			flex-wrap: wrap;
+			&:last-of-type {
+				border-bottom: $border-style;
+				@include atMedium {
+					border-bottom: none;
+				}
+			}
 		}
 		&_head {
 			width: 100%;
 			text-transform: uppercase;
-			margin-bottom: rem(6);
+			padding: rem(14) 0;
+			border-top: $border-style;
+			@include atMedium {
+				margin-bottom: rem(6);
+				padding: 0;
+				border-top: none;
+			}
 		}
 		&_inner {
-			align-self: flex-end;
+			@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
+			@include atMedium {
+				@include outputList(getNestedMap($font-settings, 'md', 'link'));
+				align-self: flex-end;
+			}
 			ul {
-				margin: 0;
-				padding: 0;
+				padding: 0 0 rem(10);
 				list-style-type: none;
+				margin: 0;
+				@include atMedium {
+					padding: 0;
+				}
 			}
 			a {
 				color: inherit;

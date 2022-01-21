@@ -1,19 +1,27 @@
+@use 'sass:map';
 @import './functions';
+@import './variables.scss';
 
 @mixin atSmall {
-	@media (min-width: 576px) {
+	@media (min-width: map.get($breakpoints, 'sm')) {
 		@content;
 	}
 }
 
 @mixin atMedium {
-	@media (min-width: 768px) {
+	@media (min-width: map.get($breakpoints, 'md')) {
 		@content;
 	}
 }
 
 @mixin atLarge {
-	@media (min-width: 992px) {
+	@media (min-width: map.get($breakpoints, 'lg')) {
+		@content;
+	}
+}
+
+@mixin atCustom($break) {
+	@media (min-width: rem($break)) {
 		@content;
 	}
 }
@@ -21,5 +29,11 @@
 @mixin outputList($list) {
 	@each $prop, $val in $list {
 		#{$prop}: $val;
+	}
+}
+
+@mixin removeOutline($selector) {
+	body:global(.using-mouse) :local(#{$selector}) {
+		outline: none;
 	}
 }

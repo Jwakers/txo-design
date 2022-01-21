@@ -2,48 +2,45 @@
 
 // Breakpoints
 $breakpoints: (
-	sm: rem(481),
-	md: rem(768),
-	lg: rem(1024),
+	sm: rem(768),
+	md: rem(1200),
+	lg: rem(1920),
 );
 
 // Font sizes
-$hero-ls: -0.066em;
-$primary-ls: -0.04em;
-$link-ls: -0.045em;
 $font-settings: (
 	sm: (
 		hero: (
-			font-size: rem(72),
-			line-height: rem(69),
-			letter-spacing: $hero-ls,
+			font-size: rem(49),
+			line-height: rem(49),
+			letter-spacing: -0.05em,
 		),
 		primary: (
 			font-size: rem(18),
 			line-height: rem(19),
-			letter-spacing: $primary-ls,
+			letter-spacing: -0.06em,
 		),
 		link: (
 			font-size: rem(10),
 			line-height: rem(10),
-			letter-spacing: $link-ls,
+			letter-spacing: -0.045em,
 		),
 	),
 	md: (
 		hero: (
-			font-size: rem(124),
-			line-height: rem(116),
-			letter-spacing: $hero-ls,
+			font-size: rem(134),
+			line-height: rem(138),
+			letter-spacing: -0.05em,
 		),
 		primary: (
-			font-size: rem(34),
-			line-height: rem(34),
-			letter-spacing: $primary-ls,
+			font-size: rem(45),
+			line-height: rem(45),
+			letter-spacing: -0.06em,
 		),
 		link: (
-			font-size: rem(16),
+			font-size: rem(18),
 			line-height: rem(18),
-			letter-spacing: $link-ls,
+			letter-spacing: -0.045em,
 		),
 	),
 );
@@ -54,3 +51,7 @@ $color-secondary: #f9f5ef;
 
 // Animation
 $tspeed: 200ms;
+
+// Other
+$opacity: 0.3;
+$border-style: 2px solid $color-primary;

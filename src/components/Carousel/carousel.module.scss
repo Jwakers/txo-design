@@ -4,22 +4,29 @@
 
 .carousel {
 	$spacing: rem(26);
-	margin: rem(100) 0;
+	min-height: 100vh;
+	@include atMedium {
+		min-height: auto;
+	}
 	&_wrapper {
 		display: flex;
 		overflow: hidden;
+		padding-top: 100px;
 		&_img {
 			width: 100%;
 		}
 	}
 	&_infoBar {
-		@include outputList(getNestedMap($font-settings, 'md', 'primary'));
 		margin-bottom: $spacing;
+		@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+		}
 		&_top {
 			display: flex;
 			align-content: stretch;
 			padding: $spacing 0;
-			border-bottom: 2px solid $color-primary;
+			border-bottom: $border-style;
 			div {
 				flex: 1 0 0;
 			}

@@ -3,7 +3,6 @@
 @import '../../assets/style/variables';
 
 .button {
-	@include outputList(getNestedMap($font-settings, 'md', 'primary'));
 	appearance: none;
 	border: none;
 	background: none;
@@ -13,7 +12,11 @@
 	transition: opacity $tspeed;
 	will-change: opacity;
 	cursor: pointer;
+	@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
+	@include atMedium {
+		@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+	}
 	&:hover {
-		opacity: 0.3;
+		opacity: $opacity;
 	}
 }

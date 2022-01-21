@@ -3,9 +3,8 @@
 
 .layout {
 	margin: 0 auto;
-	padding: rem(16) rem(24);
+	padding: rem(16) rem(16);
 	@include atMedium {
-		// TODO: find exact in design
-		max-width: rem(1600);
+		padding: rem(30) rem(40);
 	}
 }

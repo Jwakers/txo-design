@@ -1,0 +1,48 @@
+@import '../../../assets/style/mixins';
+@import '../../../assets/style/variables';
+.hamburger {
+	$this: &;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 37px;
+	@include atMedium {
+		display: none;
+	}
+	&___open {
+		#{$this}_bar___top {
+			transform: rotate(-45deg);
+		}
+		#{$this}_bar___middle {
+			opacity: 0;
+		}
+		#{$this}_bar___bottom {
+			transform: rotate(45deg);
+		}
+	}
+
+	&_bar {
+		position: relative;
+		height: 2px;
+		background-color: $color-primary;
+		transform: rotate(0deg);
+		transform-origin: 100%;
+		transition: transform $tspeed;
+		will-change: transform;
+		&___top {
+			transform: rotate(0deg);
+		}
+		&___middle {
+			opacity: 1;
+			transition: transform $tspeed, opacity $tspeed;
+			will-change: opacity;
+		}
+		&___bottom {
+			transform: rotate(0deg);
+		}
+	}
+}
+
+body:global(.using-mouse) :local(.hamburger) {
+	outline: none;
+}

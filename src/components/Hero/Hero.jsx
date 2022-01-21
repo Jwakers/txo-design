@@ -4,8 +4,9 @@ import * as style from './hero.module.scss';
 const Hero = () => (
 	<section className={style.hero}>
 		<p className={style.hero_center}>
-			We’re hands-on and committed to evolving your business to strive for
-			better.
+			We’re hands-on and <br />
+			committed to evolving your <br />
+			business to strive for better.
 		</p>
 		<div className={style.hero_bottom}>
 			<div className={style.hero_bottom_head}>Our offering</div>
