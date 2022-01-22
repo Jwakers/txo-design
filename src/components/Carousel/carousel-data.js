@@ -1,13 +1,15 @@
 // File to concactinate image and associated dummy data for
-// use in presentation logic in Gallery.jsx
+// use in presentation logic for the carousel
 
 function importAll(req) {
 	return req.keys().map(req);
 }
-// https://webpack.js.org/guides/dependency-management/#requirecontext
+
 const images = importAll(
+	// https://webpack.js.org/guides/dependency-management/#requirecontext
 	require.context('../../assets/images/carousel-images', false, /jpe?g/)
 );
+
 const imageInfo = [
 	{
 		name: 'Sample image 1',
@@ -40,6 +42,7 @@ const imageInfo = [
 		id: 5,
 	},
 ];
+
 const combined = images.map((item, i) => {
 	return {
 		src: item.default,

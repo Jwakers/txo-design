@@ -12,9 +12,11 @@ const Carousel = () => {
 	const wrapperRef = useRef(null);
 	const cursorRef = useRef(null);
 	useEffect(() => {
+		// Set the offset width of carousel used for calculations
 		setWrapperWidth(wrapperRef.current.offsetWidth);
 	}, []);
 	const handleMouseMove = (e) => {
+		// Align psuedo cursor element to actual cursor position
 		const { x, y } = getPosition(e);
 		calcDirection(e, x);
 		cursorRef.current.style.transform = `translate(${x}px, ${y}px)`;
@@ -34,12 +36,13 @@ const Carousel = () => {
 		setDirection('');
 	};
 	const getPosition = (e) => {
+		// Get logical mouse position relative to element
 		const rect = e.currentTarget.getBoundingClientRect();
 		return { x: e.clientX - rect.left, y: e.clientY - rect.top };
 	};
 	const calcDirection = (e, x) => {
-		// Get logical mouse position relative to element
 		const rect = e.currentTarget.getBoundingClientRect();
+		// Convert position to percentage value
 		const position = Math.round((x / rect.width) * 100);
 		if (position >= 50 && direction !== 'next') return setDirection('next');
 		if (position < 50 && direction !== 'prev') return setDirection('prev');

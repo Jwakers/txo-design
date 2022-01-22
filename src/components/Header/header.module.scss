@@ -78,25 +78,15 @@
 			}
 		}
 		&_inner {
+			padding-bottom: rem(10);
 			@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
 			@include atMedium {
 				@include outputList(getNestedMap($font-settings, 'md', 'link'));
 				align-self: flex-end;
+				padding-bottom: 0;
 			}
 			@include atLarge {
 				@include outputList(getNestedMap($font-settings, 'lg', 'link'));
-			}
-			ul {
-				padding: 0 0 rem(10);
-				list-style-type: none;
-				margin: 0;
-				@include atMedium {
-					padding: 0;
-				}
-			}
-			a {
-				color: inherit;
-				text-decoration: none;
 			}
 		}
 	}

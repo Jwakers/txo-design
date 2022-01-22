@@ -6,14 +6,12 @@
 	$spacing: rem(14);
 	$spacing-md: rem(26);
 	margin-top: 100px;
-	overflow: hidden;
-
 	@include atSmall {
 		min-height: auto;
 	}
-
 	&_wrapper {
 		position: relative;
+		overflow: hidden;
 		@include atSmall {
 			cursor: none;
 		}
@@ -32,9 +30,12 @@
 			mix-blend-mode: difference;
 			text-transform: uppercase;
 			z-index: 10;
-			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
 			@include atSmall {
 				display: block;
+				@include outputList(getNestedMap($font-settings, 'sm', 'hero'));
+			}
+			@include atMedium {
+				@include outputList(getNestedMap($font-settings, 'md', 'hero'));
 			}
 		}
 	}
