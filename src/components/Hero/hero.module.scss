@@ -5,21 +5,22 @@
 .hero {
 	display: flex;
 	flex-wrap: wrap;
-	// height: 100vh;
 	margin-top: (100vh);
 	// Offset for fixed header
 	padding-top: rem(72);
-	@include atMedium {
+	@include atSmall {
 		display: inline-flex;
 		flex-direction: column;
 		align-items: flex-start;
 		flex-wrap: nowrap;
-		// height: auto;
 	}
 	&_center {
 		@include outputList(getNestedMap($font-settings, 'sm', 'hero'));
-		@include atMedium {
+		@include atSmall {
 			@include outputList(getNestedMap($font-settings, 'md', 'hero'));
+		}
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'lg', 'hero'));
 		}
 		br {
 			display: none;
@@ -34,15 +35,19 @@
 		align-self: flex-end;
 		&_head {
 			@include outputList(getNestedMap($font-settings, 'sm', 'link'));
-			@include atMedium {
+			@include atSmall {
 				@include outputList(getNestedMap($font-settings, 'md', 'link'));
 			}
 			text-transform: uppercase;
 		}
 		&_content {
 			@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
-			@include atMedium {
+			@include atSmall {
 				@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+			}
+
+			@include atMedium {
+				@include outputList(getNestedMap($font-settings, 'lg', 'primary'));
 			}
 			margin: rem(10) 0;
 		}

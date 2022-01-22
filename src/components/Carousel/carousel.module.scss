@@ -8,13 +8,13 @@
 	margin-top: 100px;
 	overflow: hidden;
 
-	@include atMedium {
+	@include atSmall {
 		min-height: auto;
 	}
 
 	&_wrapper {
 		position: relative;
-		@include atMedium {
+		@include atSmall {
 			cursor: none;
 		}
 		&_inner {
@@ -33,7 +33,7 @@
 			text-transform: uppercase;
 			z-index: 10;
 			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
-			@include atMedium {
+			@include atSmall {
 				display: block;
 			}
 		}
@@ -41,16 +41,20 @@
 	&_infoBar {
 		margin-bottom: $spacing;
 		@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
-		@include atMedium {
+		@include atSmall {
 			@include outputList(getNestedMap($font-settings, 'md', 'primary'));
 			margin-bottom: $spacing-md;
+		}
+
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'lg', 'primary'));
 		}
 		&_top {
 			display: flex;
 			align-content: stretch;
 			border-bottom: $border-style;
 			padding: $spacing 0;
-			@include atMedium {
+			@include atSmall {
 				padding: $spacing-md 0;
 			}
 			div {
@@ -69,7 +73,7 @@
 			&___open {
 				max-height: rem(400);
 				margin-top: $spacing;
-				@include atMedium {
+				@include atSmall {
 					margin-top: $spacing-md;
 				}
 			}

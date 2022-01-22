@@ -3,8 +3,8 @@
 // Breakpoints
 $breakpoints: (
 	sm: rem(768),
-	md: rem(1200),
-	lg: rem(1920),
+	md: rem(992),
+	lg: rem(1200),
 );
 
 // Font sizes
@@ -27,6 +27,23 @@ $font-settings: (
 		),
 	),
 	md: (
+		hero: (
+			font-size: rem(79),
+			line-height: rem(79),
+			letter-spacing: -0.05em,
+		),
+		primary: (
+			font-size: rem(35),
+			line-height: rem(35),
+			letter-spacing: -0.06em,
+		),
+		link: (
+			font-size: rem(16),
+			line-height: rem(16),
+			letter-spacing: -0.045em,
+		),
+	),
+	lg: (
 		hero: (
 			font-size: rem(134),
 			line-height: rem(138),

@@ -7,13 +7,19 @@
 	align-items: center;
 	padding: rem(8) 0;
 	margin-top: rem(100);
-	@include atMedium {
+	@include atSmall {
 		margin-top: rem(300);
 	}
 	&_logo {
 		width: 100%;
+		flex: 1 1 0;
 		@include atMedium {
-			flex: 1 1 0;
+			flex-grow: 0;
+			margin-right: rem(40);
+		}
+		@include atLarge {
+			flex-grow: 1;
+			margin-right: 0;
 		}
 		img {
 			max-height: rem(26);
@@ -23,8 +29,10 @@
 		width: 100%;
 		margin-top: rem(30);
 		@include outputList(getNestedMap($font-settings, 'sm', 'link'));
+		@include atSmall {
+			@include outputList(getNestedMap($font-settings, 'lg', 'link'));
+		}
 		@include atMedium {
-			@include outputList(getNestedMap($font-settings, 'md', 'link'));
 			flex: 1 1 0;
 			margin-top: 0;
 		}
@@ -32,13 +40,13 @@
 		justify-content: space-between;
 
 		[data-type='amp'] {
-			@include atMedium {
+			@include atSmall {
 				display: none;
 			}
 		}
 		[data-type='text'] {
 			display: none;
-			@include atMedium {
+			@include atSmall {
 				display: inline;
 			}
 		}

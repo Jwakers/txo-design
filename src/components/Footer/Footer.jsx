@@ -8,19 +8,13 @@ const Footer = () => (
 			<img src={logo} alt='Thirdway logo' />
 		</div>
 		<div className={style.footer_links}>
-			<a className={style.footer_links_link} href='#'>
+			<a href='#'>
 				Terms <span data-type='amp'>&amp;</span>
 				<span data-type='text'>and</span> Conditions
 			</a>
-			<a className={style.footer_links_link} href='#'>
-				Privacy Policy
-			</a>
-			<a className={style.footer_links_link} href='#'>
-				Cookie Policy
-			</a>
-			<a className={style.footer_links_link} href='#'>
-				Accessibility
-			</a>
+			<a href='#'>Privacy Policy</a>
+			<a href='#'>Cookie Policy</a>
+			<a href='#'>Accessibility</a>
 		</div>
 	</footer>
 );

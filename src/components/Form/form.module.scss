@@ -22,10 +22,13 @@
 		margin-bottom: rem(-3);
 		margin-left: rem(-3);
 		@include outputList(getNestedMap($font-settings, 'sm', 'hero'));
-		@include atMedium {
+		@include atSmall {
 			@include outputList(getNestedMap($font-settings, 'md', 'hero'));
 			margin-bottom: rem(-3);
 			margin-left: rem(-8);
+		}
+		@include atMedium {
+			@include outputList(getNestedMap($font-settings, 'lg', 'hero'));
 		}
 		&___input {
 			margin-bottom: rem(-8);

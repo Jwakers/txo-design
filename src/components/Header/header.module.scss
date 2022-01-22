@@ -17,6 +17,7 @@
 
 	&_logo {
 		flex-grow: 1;
+		margin-right: rem(40);
 		// Required for gsap
 		transform-origin: 0 0;
 		img {
@@ -37,9 +38,7 @@
 		padding: rem(46) rem(20);
 		height: calc(100vh - 40px);
 		background-color: $color-secondary;
-		@include outputList(getNestedMap($font-settings, 'sm', 'link'));
 		@include atMedium {
-			@include outputList(getNestedMap($font-settings, 'md', 'link'));
 			position: static;
 			padding: 0;
 			height: auto;
@@ -67,10 +66,15 @@
 			text-transform: uppercase;
 			padding: rem(14) 0;
 			border-top: $border-style;
+			@include outputList(getNestedMap($font-settings, 'sm', 'link'));
 			@include atMedium {
+				@include outputList(getNestedMap($font-settings, 'md', 'link'));
 				margin-bottom: rem(6);
 				padding: 0;
 				border-top: none;
+			}
+			@include atLarge {
+				@include outputList(getNestedMap($font-settings, 'lg', 'link'));
 			}
 		}
 		&_inner {
@@ -78,6 +82,9 @@
 			@include atMedium {
 				@include outputList(getNestedMap($font-settings, 'md', 'link'));
 				align-self: flex-end;
+			}
+			@include atLarge {
+				@include outputList(getNestedMap($font-settings, 'lg', 'link'));
 			}
 			ul {
 				padding: 0 0 rem(10);

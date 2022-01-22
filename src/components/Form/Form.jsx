@@ -8,9 +8,7 @@ const Form = () => {
 		<>
 			<form className={style.form}>
 				<div className={style.form_top}>Stay updated</div>
-				<div className={[style.form_item, style.form_item___head].join(' ')}>
-					Newsletter
-				</div>
+				<div className={style.form_item}>Newsletter</div>
 				<FormInput type='text' placeholder='Full name' />
 				<FormInput type='text' placeholder='Company' />
 				<FormInput type='email' placeholder='Email Address' />

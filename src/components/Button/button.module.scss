@@ -13,8 +13,11 @@
 	will-change: opacity;
 	cursor: pointer;
 	@include outputList(getNestedMap($font-settings, 'sm', 'primary'));
-	@include atMedium {
+	@include atSmall {
 		@include outputList(getNestedMap($font-settings, 'md', 'primary'));
+	}
+	@include atMedium {
+		@include outputList(getNestedMap($font-settings, 'lg', 'primary'));
 	}
 	&:hover {
 		opacity: $opacity;
